@@ -1,0 +1,10 @@
+Были выбраны геномы норвежской крысы и домовой мыши, в которых искался белковый домен 7tm_3 во вкусовых рецепторов GPCR. Выбор пал на данные геномы, т.к. они хорошо изучены и являются эволюционно близкими. 
+Анализ мотивов в выравнивании CLUSTAL:
+Делаем упор на гидрофобных остатках
+TM1 LAWTEPFGIALTLFAVLGIFLTAFVLGV
+TM2 LFFIGEPQDWTCRLRQPAFGISFVLCIS
+TM3 CILVKTNRVLLVFEAKIPTSFHRKWWGL
+TM4 WWGLNLQFLLVFLCTFMQIVICIIWLYTA
+TM5 PPSSYRNHELEDEIIFITCHEGSLMALGS
+TM6 LIGYTCLLAAICFFFAFKSRKLPENFNEA
+TM7 KFITFSMLIFFIVWISFIPAYASTYGKFVS
