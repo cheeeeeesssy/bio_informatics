@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Задание 3:" >> fout
+read -r line < ./3/fin
+tenth_char="${line:9:1}"
+echo "$tenth_char" >> fout

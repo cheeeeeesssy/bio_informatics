@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Задание 2:" >> fout
+echo "Hello, world!" >> fout

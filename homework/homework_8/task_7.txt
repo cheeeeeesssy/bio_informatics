@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo "Задание 7:" >> fout
+
+insertion_seq=""
+deletion_seq=""
+insertion_len=0
+deletion_len=0
+insertion_chr=""
+deletion_chr=""
+
+while IFS=$'\t' read -r chrom pos id ref alt rest; do
+    [[ "$chrom" == \#* ]] && continue
+    [[ "$alt" == *,* ]] && continue
+
+    len_ref=${#ref}
+    len_alt=${#alt}
+
+    if (( len_alt > len_ref )); then
+        ins_len=$((len_alt - len_ref))
+        if (( ins_len > insertion_len )); then
+            insertion_len=$ins_len
+            insertion_seq=${alt:len_ref}
+            insertion_chr=$chrom
+        fi
+    elif (( len_ref > len_alt )); then
+        [[ "$chrom" == "$insertion_chr" ]] && continue
+        del_len=$((len_ref - len_alt))
+        if (( del_len > deletion_len )); then
+            deletion_len=$del_len
+            deletion_seq=${ref:len_alt}
+            deletion_chr=$chrom
+        fi
+    fi
+done < ./7/clinvar_20250330.vcf
+
+{
+    echo "Longest insertion ($insertion_len bp) in chromosome $insertion_chr:"
+    echo "$insertion_seq"
+    echo "Longest deletion ($deletion_len bp) in chromosome $deletion_chr:"
+    echo "$deletion_seq"
+} >> fout

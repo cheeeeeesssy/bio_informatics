@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Задание 1:" > fout
+read -r line < ./1/fin
+numbers=($(echo "$line" | tr '\t' ' '))
+sum=$(( ${numbers[0]} + ${numbers[1]} + ${numbers[2]} ))
+echo "$sum" >> fout
