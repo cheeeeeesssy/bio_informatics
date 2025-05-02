@@ -1,0 +1,37 @@
+По результатам работы получены соедующие результаты по сборкам:
+Assembly                    platanus_sem_contig  platanus_best_contig  scaffolds  scaffolds_best
+# contigs (>= 0 bp)         42                   29                    49         38            
+# contigs (>= 1000 bp)      0                    0                     1          1             
+# contigs (>= 5000 bp)      0                    0                     0          0             
+# contigs (>= 10000 bp)     0                    0                     0          0             
+# contigs (>= 25000 bp)     0                    0                     0          0             
+# contigs (>= 50000 bp)     0                    0                     0          0             
+Total length (>= 0 bp)      8094                 7503                  15064      12103         
+Total length (>= 1000 bp)   0                    0                     1069       1069          
+Total length (>= 5000 bp)   0                    0                     0          0             
+Total length (>= 10000 bp)  0                    0                     0          0             
+Total length (>= 25000 bp)  0                    0                     0          0             
+Total length (>= 50000 bp)  0                    0                     0          0             
+# contigs                   42                   29                    49         38            
+Largest contig              895                  983                   1069       1069          
+Total length                8094                 7503                  15064      12103         
+GC (%)                      44.22                44.76                 45.47      44.64         
+N50                         327                  409                   440        517           
+N90                         71                   91                    148        147           
+auN                         371.1                487.9                 484.1      533.3         
+L50                         9                    6                     12         9             
+L90                         25                   20                    37         28            
+# N's per 100 kbp           0.00                 0.00                  0.00       0.00          
+
+В ходе задания выполнялась новая сборка генома вируса гриппа А. Т.к. уже существуют реализованные сборки генома, то на сайте NCBI была найдена длина этих геномов, которая составляет в среднем 13,5 kbp. Видим, что параметр Total length (>= 0 bp) должен быть ближе к этому числу.
+
+Были выполнены следующие сборки:
+platanus_sem_contig: сборка Platanus с параметрами с семинара
+platanus_best_contig: улучшенные параметры для Platanus
+scaffolds: скаффолдинг с параметрами с семинара
+scaffolds_best: улучшенные параметры скаффолдинга
+
+Вывод: в итоговой таблице видим, что наилучшей сборкой является scaffolds_best:
+
+Она имеет максимальный N50 (517), один из самый длинный контиг (1069 bp) и лучший auN (533.3). Его длина (Total length) и GC-состав наиболее приближены к уже существующим сборкам. Количество контигов снижено по сравнению с семинарскими сборками, что указывает на меньшую фрагментацию. Она была получена следующей командой:
+python3 /projects/mipt_dbmp_biotechnology/soft/SPAdes-4.1.0-Linux/bin/spades.py --careful -1 /projects/mipt_dbmp_biotechnology/genome_de_novo/7_S4_L001_R1_001.fastq -2 /projects/mipt_dbmp_biotechnology/genome_de_novo/7_S4_L001_R2_001.fastq -k 21,33,55,77 --cov-cutoff auto -t 8 -o ~/homework/homework_11/spades_best
