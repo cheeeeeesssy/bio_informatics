@@ -1,0 +1,3 @@
+Saved FeatureTable[Frequency] to: qza/soil_ASV_table.qza
+Saved FeatureData[Sequence] to: qza/soil_rep_seq.qza
+Saved SampleData[DADA2Stats] to: qza/soil_reads.dada2.stats.qza
